@@ -1,0 +1,546 @@
+/* ═══════════════════════════════════════════════════════════
+   EDIRISINGHE CUSHION WORKS — GLOBAL LUXURY STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables ─────────────────────────────────── */
+:root {
+  --ecw-gold: #c9a84c;
+  --ecw-gold-light: #e6c96a;
+  --ecw-gold-dark: #9e7c2a;
+  --ecw-silver: #b8b8cc;
+  --ecw-black: #090909;
+  --ecw-charcoal: #111111;
+  --ecw-charcoal-mid: #1a1a1a;
+  --ecw-charcoal-soft: #242424;
+  --ecw-charcoal-border: #2e2e2e;
+  --ecw-text-primary: #f0ece2;
+  --ecw-text-secondary: #a8a09a;
+  --ecw-text-muted: #5e5a54;
+
+  --ecw-font-display: 'Cormorant Garamond', Georgia, serif;
+  --ecw-font-body: 'Montserrat', system-ui, sans-serif;
+
+  --ecw-radius-sm: 4px;
+  --ecw-radius-md: 8px;
+  --ecw-radius-lg: 16px;
+
+  --ecw-gold-gradient: linear-gradient(135deg, #c9a84c 0%, #e6c96a 50%, #9e7c2a 100%);
+  --ecw-dark-gradient: linear-gradient(180deg, #090909 0%, #141414 100%);
+  --ecw-hero-gradient: linear-gradient(160deg, #0a0a0a 0%, #1a1408 40%, #0a0a0a 100%);
+}
+
+/* ── Reset & Base ──────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ecw-black);
+  color: var(--ecw-text-primary);
+  font-family: var(--ecw-font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── App Shell ─────────────────────────────────────── */
+.ecw-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ecw-dark-gradient);
+}
+
+.ecw-main {
+  flex: 1;
+  padding-top: 72px; /* navbar height */
+}
+
+/* ── Typography ────────────────────────────────────── */
+.ecw-display {
+  font-family: var(--ecw-font-display);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.ecw-title-xl {
+  font-family: var(--ecw-font-display);
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.ecw-title-lg {
+  font-family: var(--ecw-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.ecw-title-md {
+  font-family: var(--ecw-font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+}
+
+.ecw-label {
+  font-family: var(--ecw-font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ecw-gold);
+}
+
+.ecw-gold-text {
+  background: var(--ecw-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Gold Divider ──────────────────────────────────── */
+.ecw-gold-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--ecw-gold-gradient);
+  border: none;
+  margin: 0;
+}
+
+.ecw-gold-divider-center {
+  margin: 0 auto;
+}
+
+/* ── Section Wrapper ───────────────────────────────── */
+.ecw-section {
+  padding: 6rem 0;
+}
+
+.ecw-section-header {
+  margin-bottom: 3.5rem;
+}
+
+/* ── Gold Button ───────────────────────────────────── */
+.ecw-btn-gold.p-button {
+  background: var(--ecw-gold-gradient) !important;
+  border: none !important;
+  color: #0a0a0a !important;
+  font-family: var(--ecw-font-body) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  padding: 0.875rem 2.5rem !important;
+  border-radius: var(--ecw-radius-sm) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.3) !important;
+}
+
+.ecw-btn-gold.p-button:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.5) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Ghost Button ──────────────────────────────────── */
+.ecw-btn-ghost.p-button {
+  background: transparent !important;
+  border: 1px solid var(--ecw-gold) !important;
+  color: var(--ecw-gold) !important;
+  font-family: var(--ecw-font-body) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  padding: 0.875rem 2.5rem !important;
+  border-radius: var(--ecw-radius-sm) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ecw-btn-ghost.p-button:hover {
+  background: rgba(201, 168, 76, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+.ecw-luxury-card.p-card {
+  background: var(--ecw-charcoal-mid) !important;
+  border: 1px solid var(--ecw-charcoal-border) !important;
+  border-radius: var(--ecw-radius-lg) !important;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+.ecw-luxury-card.p-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--ecw-gold-dark) !important;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(201, 168, 76, 0.15) !important;
+}
+
+.ecw-luxury-card .p-card-title {
+  font-family: var(--ecw-font-display) !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  color: var(--ecw-text-primary) !important;
+}
+
+.ecw-luxury-card .p-card-content {
+  color: var(--ecw-text-secondary) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.8 !important;
+}
+
+/* ── Badge / Group Badge ───────────────────────────── */
+.ecw-group-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  background: rgba(201, 168, 76, 0.06);
+  padding: 0.4rem 1rem;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ecw-gold);
+}
+
+.ecw-group-badge::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--ecw-gold);
+  border-radius: 50%;
+}
+
+/* ── Navbar ─────────────────────────────────────────── */
+.ecw-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  background: rgba(9, 9, 9, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  transition: background 0.3s;
+}
+
+.ecw-navbar.scrolled {
+  background: rgba(9, 9, 9, 0.98);
+  border-bottom-color: rgba(201, 168, 76, 0.2);
+}
+
+.ecw-nav-logo {
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.ecw-nav-logo-text {
+  font-family: var(--ecw-font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ecw-text-primary);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.ecw-nav-logo-sub {
+  font-family: var(--ecw-font-body);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ecw-gold);
+}
+
+.ecw-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.ecw-nav-link {
+  font-family: var(--ecw-font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ecw-text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ecw-radius-sm);
+  transition:
+    color 0.2s,
+    background 0.2s;
+  position: relative;
+}
+
+.ecw-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--ecw-gold);
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+
+.ecw-nav-link:hover,
+.ecw-nav-link.router-link-active {
+  color: var(--ecw-gold);
+}
+
+.ecw-nav-link:hover::after,
+.ecw-nav-link.router-link-active::after {
+  width: 60%;
+}
+
+/* ── Hero ───────────────────────────────────────────── */
+.ecw-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--ecw-hero-gradient);
+}
+
+.ecw-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 60% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(201, 168, 76, 0.03) 0%, transparent 50%);
+}
+
+.ecw-hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 168, 76, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 168, 76, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 80%);
+}
+
+/* ── Contact Form ───────────────────────────────────── */
+.ecw-input .p-inputtext,
+.ecw-input .p-textarea {
+  background: var(--ecw-charcoal-soft) !important;
+  border: 1px solid var(--ecw-charcoal-border) !important;
+  color: var(--ecw-text-primary) !important;
+  border-radius: var(--ecw-radius-sm) !important;
+  font-family: var(--ecw-font-body) !important;
+  transition: border-color 0.2s !important;
+}
+
+.ecw-input .p-inputtext:focus,
+.ecw-input .p-textarea:focus {
+  border-color: var(--ecw-gold) !important;
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.15) !important;
+}
+
+.ecw-input .p-float-label label {
+  color: var(--ecw-text-muted) !important;
+  font-family: var(--ecw-font-body) !important;
+  font-size: 0.85rem !important;
+}
+
+.ecw-input .p-float-label.p-focus label,
+.ecw-input .p-float-label:has(input:focus) label,
+.ecw-input .p-float-label:has(textarea:focus) label,
+.ecw-input .p-float-label:has(input:not(:placeholder-shown)) label,
+.ecw-input .p-float-label:has(textarea:not(:placeholder-shown)) label {
+  color: var(--ecw-gold) !important;
+}
+
+/* ── Gallery Filter Buttons ─────────────────────────── */
+.ecw-filter-btn {
+  background: transparent !important;
+  border: 1px solid var(--ecw-charcoal-border) !important;
+  color: var(--ecw-text-secondary) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  padding: 0.6rem 1.4rem !important;
+  border-radius: 2px !important;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ecw-filter-btn:hover,
+.ecw-filter-btn.active {
+  background: rgba(201, 168, 76, 0.1) !important;
+  border-color: var(--ecw-gold) !important;
+  color: var(--ecw-gold) !important;
+}
+
+/* ── Gallery Item ───────────────────────────────────── */
+.ecw-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ecw-radius-md);
+  border: 1px solid var(--ecw-charcoal-border);
+  cursor: pointer;
+  aspect-ratio: 4/3;
+  background: var(--ecw-charcoal-soft);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.ecw-gallery-item:hover {
+  transform: scale(1.02);
+  border-color: var(--ecw-gold-dark);
+}
+
+.ecw-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.ecw-gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.ecw-gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+
+.ecw-gallery-item:hover .ecw-gallery-overlay {
+  transform: translateY(0);
+}
+
+/* ── Stat Block ─────────────────────────────────────── */
+.ecw-stat-block {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid var(--ecw-charcoal-border);
+  border-radius: var(--ecw-radius-md);
+  background: var(--ecw-charcoal-mid);
+  transition: border-color 0.3s;
+}
+
+.ecw-stat-block:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.ecw-stat-number {
+  font-family: var(--ecw-font-display);
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+  background: var(--ecw-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Footer ─────────────────────────────────────────── */
+.ecw-footer {
+  background: var(--ecw-black);
+  border-top: 1px solid var(--ecw-charcoal-border);
+  padding: 4rem 0 2rem;
+}
+
+/* ── Page Transition ────────────────────────────────── */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* ── Utilities ──────────────────────────────────────── */
+.ecw-text-gold {
+  color: var(--ecw-gold) !important;
+}
+.ecw-text-silver {
+  color: var(--ecw-silver) !important;
+}
+.ecw-text-muted {
+  color: var(--ecw-text-muted) !important;
+}
+.ecw-text-body {
+  color: var(--ecw-text-secondary) !important;
+}
+.ecw-bg-charcoal {
+  background: var(--ecw-charcoal-mid);
+}
+.ecw-border-gold {
+  border: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+/* ── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ecw-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ecw-charcoal-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ecw-gold-dark);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .ecw-section {
+    padding: 4rem 0;
+  }
+  .ecw-navbar {
+    padding: 0 1.25rem;
+  }
+}
