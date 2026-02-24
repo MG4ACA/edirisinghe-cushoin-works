@@ -2,82 +2,62 @@
   <div>
     <!-- ══════════════  HERO  ══════════════ -->
     <section class="ecw-hero">
+      <!-- Ken Burns slideshow background -->
+      <div class="ecw-hero-slideshow">
+        <div
+          v-for="(slide, index) in heroSlides"
+          :key="index"
+          class="ecw-hero-slide"
+          :class="{ active: activeSlide === index }"
+          :style="{
+            backgroundImage: `url(${slide})`,
+            animationName: activeSlide === index ? `kenburns-${(index % 6) + 1}` : 'none',
+          }"
+        ></div>
+      </div>
       <div class="ecw-hero-bg"></div>
       <div class="ecw-hero-grid-overlay"></div>
 
-      <div class="container px-4 mx-auto" style="position: relative; z-index: 1">
-        <div class="grid align-items-center">
-          <div class="col-12 lg:col-7">
-            <!-- Group Badge -->
-            <div class="ecw-group-badge mb-5">Member of Edirisingha Group</div>
+      <div class="ecw-hero-content">
+        <!-- Group Badge -->
+        <div class="ecw-group-badge mb-4">Member of Edirisingha Group</div>
 
-            <!-- Eyebrow -->
-            <p class="ecw-label mb-3">Sri Lanka's Premier Automotive Interior Specialists</p>
+        <!-- Eyebrow -->
+        <p class="ecw-hero-eyebrow mb-4">Sri Lanka's Premier Automotive Interior Specialists</p>
 
-            <!-- Headline -->
-            <h1 class="ecw-title-xl mb-4">
-              Where Luxury
-              <br />
-              <span class="ecw-gold-text">Meets Precision</span>
-              <br />
-              Craftsmanship
-            </h1>
+        <!-- Headline -->
+        <h1 class="ecw-hero-headline mb-5">
+          Where Luxury Meets
+          <br />
+          <span class="ecw-gold-text ecw-hero-gold-span">Precision Craftsmanship</span>
+        </h1>
 
-            <!-- Divider -->
-            <div class="ecw-gold-divider mb-5"></div>
+        <!-- Gold rule -->
+        <div class="ecw-hero-rule mb-5"></div>
 
-            <!-- Sub-copy -->
-            <p
-              class="mb-6"
-              style="
-                color: var(--ecw-text-secondary);
-                font-size: 1.05rem;
-                max-width: 520px;
-                line-height: 1.9;
-              "
-            >
-              From Falkn Series premium interiors to full Limousine conversions for the Toyota KDH
-              &amp; Hiace H300 — we redefine what luxury means on Sri Lankan roads.
-            </p>
+        <!-- Sub-copy -->
+        <p class="ecw-hero-sub mb-7">
+          From Falkn Series premium interiors to full Limousine conversions for the Toyota KDH &amp;
+          Hiace H300 — we redefine what luxury means on Sri Lankan roads.
+        </p>
 
-            <!-- CTA Row -->
-            <div class="flex flex-wrap gap-3">
-              <RouterLink to="/services">
-                <Button
-                  label="Explore Services"
-                  icon="pi pi-arrow-right"
-                  iconPos="right"
-                  class="ecw-btn-gold"
-                />
-              </RouterLink>
-              <RouterLink to="/gallery">
-                <Button label="View Portfolio" icon="pi pi-images" class="ecw-btn-ghost" />
-              </RouterLink>
-            </div>
-          </div>
-
-          <!-- Hero Visual -->
-          <div class="col-12 lg:col-5 hidden lg:flex justify-content-end">
-            <div class="ecw-hero-visual">
-              <div class="ecw-hero-plate">
-                <div class="ecw-hero-plate-inner">
-                  <i class="pi pi-star-fill" style="color: var(--ecw-gold); font-size: 2rem"></i>
-                  <p
-                    class="ecw-display mt-3"
-                    style="font-size: 1.1rem; color: var(--ecw-text-secondary)"
-                  >
-                    Since 1995
-                  </p>
-                  <p class="ecw-title-md ecw-gold-text mt-1">30+ Years</p>
-                  <p class="ecw-label mt-2">of Luxury Excellence</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- CTA Row -->
+        <div class="ecw-hero-cta-row">
+          <RouterLink to="/services">
+            <Button
+              label="Explore Services"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              class="ecw-btn-gold"
+            />
+          </RouterLink>
+          <RouterLink to="/gallery">
+            <Button label="View Portfolio" icon="pi pi-images" class="ecw-btn-ghost" />
+          </RouterLink>
         </div>
 
         <!-- Scroll indicator -->
-        <div class="ecw-scroll-indicator">
+        <div class="ecw-scroll-indicator mt-6">
           <span class="ecw-label" style="font-size: 0.6rem">Scroll</span>
           <div class="ecw-scroll-line"></div>
         </div>
@@ -110,6 +90,28 @@
       <div class="container px-4 mx-auto">
         <div class="grid align-items-center gap-4">
           <div class="col-12 md:col-5">
+            <div class="ecw-about-photo-wrap">
+              <img
+                :src="siteImages.aboutCraft"
+                alt="Master craftsman at work — leather stitching"
+                class="ecw-about-photo"
+                loading="lazy"
+              />
+              <div class="ecw-about-photo-accent">
+                <p class="ecw-label" style="font-size: 0.6rem">The Art of</p>
+                <p
+                  style="
+                    font-family: var(--ecw-font-display);
+                    font-size: 1.1rem;
+                    color: var(--ecw-text-primary);
+                  "
+                >
+                  Handcrafted Luxury
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 md:col-6">
             <p class="ecw-label mb-3">About the House</p>
             <h2 class="ecw-title-lg mb-4">
               Artisans of the
@@ -117,8 +119,6 @@
               <span class="ecw-gold-text">Finest Interiors</span>
             </h2>
             <div class="ecw-gold-divider mb-4"></div>
-          </div>
-          <div class="col-12 md:col-6 md:col-offset-1">
             <p style="color: var(--ecw-text-secondary); line-height: 2; margin-bottom: 1.5rem">
               Edirisinghe Cushion Works (Pvt) Ltd has been at the forefront of automotive interior
               design in Sri Lanka since 1995. As a proud member of the Edirisingha Group, our
@@ -156,26 +156,31 @@
 
         <div class="grid">
           <div
-            v-for="service in featuredServices"
+            v-for="(service, idx) in featuredServices"
             :key="service.id"
             class="col-12 sm:col-6 lg:col-3"
           >
-            <div class="ecw-feature-card h-full">
-              <div class="ecw-feature-icon">
+            <div class="ecw-service-card h-full" :class="{ 'ecw-service-featured': idx === 0 }">
+              <div class="ecw-service-accent"></div>
+              <div class="ecw-service-number">{{ String(idx + 1).padStart(2, '0') }}</div>
+              <div class="ecw-service-icon">
                 <i :class="`pi ${service.icon}`"></i>
               </div>
-              <h3 class="ecw-title-md mt-4 mb-2">{{ service.name }}</h3>
-              <p style="color: var(--ecw-text-muted); font-size: 0.87rem; line-height: 1.8">
+              <h3 class="ecw-service-title mt-4 mb-3">{{ service.name }}</h3>
+              <p class="ecw-service-brief">
                 {{ service.brief }}
               </p>
+              <div class="ecw-service-arrow">
+                <i class="pi pi-arrow-right"></i>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="text-center mt-6">
+        <div class="text-center mt-8">
           <RouterLink to="/services">
             <Button
-              label="All Services"
+              label="Explore All Services"
               icon="pi pi-arrow-right"
               iconPos="right"
               class="ecw-btn-ghost"
@@ -195,17 +200,24 @@
                 <i class="pi pi-star-fill ecw-text-gold mr-2"></i>
                 Flagship Service
               </div>
-              <div class="ecw-spotlight-image-mock">
-                <div class="ecw-spotlight-content">
-                  <p class="ecw-label">Toyota KDH / Hiace H300</p>
+              <div class="ecw-spotlight-image-wrap">
+                <img
+                  :src="siteImages.kdhSpotlight"
+                  alt="KDH H300 VIP Lounge luxury interior conversion"
+                  class="ecw-spotlight-img"
+                  loading="lazy"
+                />
+                <!-- Overlay caption -->
+                <div class="ecw-spotlight-caption">
+                  <p class="ecw-label" style="font-size: 0.6rem">Toyota KDH / Hiace H300</p>
                   <p
-                    class="ecw-display mt-2"
-                    style="font-size: 1.8rem; color: var(--ecw-text-primary)"
+                    class="ecw-display mt-1"
+                    style="font-size: 1.4rem; color: var(--ecw-text-primary)"
                   >
                     H300 VIP Lounge
                   </p>
-                  <p class="ecw-display" style="font-size: 1.8rem">
-                    <span class="ecw-gold-text">Conversion</span>
+                  <p class="ecw-display">
+                    <span class="ecw-gold-text" style="font-size: 1.4rem">Conversion</span>
                   </p>
                 </div>
               </div>
@@ -265,6 +277,23 @@
 </template>
 
 <script setup>
+import { heroSlides, siteImages } from '@/data/images.js';
+import { onMounted, onUnmounted, ref } from 'vue';
+
+// ── Ken Burns slideshow ──────────────────────────────────────
+const activeSlide = ref(0);
+let slideshowInterval = null;
+
+onMounted(() => {
+  slideshowInterval = setInterval(() => {
+    activeSlide.value = (activeSlide.value + 1) % heroSlides.length;
+  }, 6000);
+});
+
+onUnmounted(() => {
+  clearInterval(slideshowInterval);
+});
+
 const stats = [
   { value: '30+', label: 'Years of Expertise' },
   { value: '5K+', label: 'Vehicles Transformed' },
@@ -321,33 +350,130 @@ const kdhFeatures = [
 </script>
 
 <style scoped>
-/* Feature Cards */
-.ecw-feature-card {
-  padding: 2rem 1.5rem;
+/* Service Cards */
+.ecw-service-card {
+  position: relative;
+  padding: 2.5rem 1.75rem;
   border: 1px solid var(--ecw-charcoal-border);
   border-radius: var(--ecw-radius-lg);
-  background: var(--ecw-charcoal-soft);
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.6) 100%);
   transition:
-    border-color 0.3s,
-    transform 0.3s;
-  cursor: default;
-}
-.ecw-feature-card:hover {
-  border-color: var(--ecw-gold-dark);
-  transform: translateY(-4px);
+    all 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.35s;
+  cursor: pointer;
+  overflow: hidden;
+  border-left: 3px solid var(--ecw-charcoal-border);
 }
 
-.ecw-feature-icon {
-  width: 52px;
-  height: 52px;
+.ecw-service-card:hover {
+  border-color: var(--ecw-gold-dark);
+  border-left-color: var(--ecw-gold);
+  transform: translateY(-6px);
+  background: linear-gradient(135deg, rgba(40, 40, 40, 0.9) 0%, rgba(25, 25, 25, 0.7) 100%);
+  box-shadow: 0 20px 40px rgba(201, 168, 76, 0.15);
+}
+
+.ecw-service-featured {
+  border: 1.5px solid rgba(201, 168, 76, 0.4);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.08) 0%, rgba(30, 30, 30, 0.8) 100%);
+}
+
+.ecw-service-featured:hover {
+  border: 1.5px solid var(--ecw-gold);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.12) 0%, rgba(35, 35, 35, 0.9) 100%);
+}
+
+.ecw-service-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--ecw-gold-gradient);
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
+.ecw-service-card:hover .ecw-service-accent {
+  opacity: 1;
+}
+
+.ecw-service-featured .ecw-service-accent {
+  opacity: 1;
+}
+
+.ecw-service-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(201, 168, 76, 0.15);
+  pointer-events: none;
+}
+
+.ecw-service-card:hover .ecw-service-number {
+  color: rgba(201, 168, 76, 0.25);
+}
+
+.ecw-service-icon {
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(201, 168, 76, 0.3);
+  border: 1.5px solid rgba(201, 168, 76, 0.3);
   border-radius: var(--ecw-radius-md);
-  background: rgba(201, 168, 76, 0.05);
+  background: rgba(201, 168, 76, 0.06);
   color: var(--ecw-gold);
+  font-size: 1.4rem;
+  transition: all 0.35s;
+}
+
+.ecw-service-card:hover .ecw-service-icon {
+  border-color: rgba(201, 168, 76, 0.6);
+  background: rgba(201, 168, 76, 0.12);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.15);
+}
+
+.ecw-service-title {
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ecw-text-primary);
+  letter-spacing: 0.02em;
+}
+
+.ecw-service-brief {
+  color: var(--ecw-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.ecw-service-arrow {
+  position: absolute;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 50%;
+  color: var(--ecw-gold);
+  font-size: 0.9rem;
+  transition: all 0.35s;
+  opacity: 0.5;
+}
+
+.ecw-service-card:hover .ecw-service-arrow {
+  opacity: 1;
+  border-color: var(--ecw-gold);
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateX(4px);
 }
 
 /* Feature list */
@@ -364,24 +490,129 @@ const kdhFeatures = [
   align-items: center;
 }
 
-/* Hero visual */
-.ecw-hero-visual {
+/* ── Hero Text Layout ─────────────────────────────────────── */
+.ecw-hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-.ecw-hero-plate {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 30%, rgba(201, 168, 76, 0.08), transparent 70%);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ecw-hero-plate-inner {
   text-align: center;
+  padding: 0 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.ecw-hero-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(201, 168, 76, 0.85);
+}
+.ecw-hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #fff;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+.ecw-hero-gold-span {
+  white-space: nowrap;
+}
+.ecw-hero-rule {
+  width: 60px;
+  height: 2px;
+  background: var(--ecw-gold-gradient);
+  border-radius: 2px;
+}
+.ecw-hero-sub {
+  font-size: 1rem;
+  color: var(--ecw-text-secondary);
+  line-height: 1.95;
+  max-width: 600px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.ecw-hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ── Ken Burns Hero Slideshow ─────────────────────────────── */
+.ecw-hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.ecw-hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  filter: brightness(0.22) saturate(0.55);
+}
+.ecw-hero-slide.active {
+  opacity: 1;
+  animation-duration: 8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* 6 varied Ken Burns keyframes — subtle pan + zoom */
+@keyframes kenburns-1 {
+  from {
+    transform: scale(1) translate(0%, 0%);
+  }
+  to {
+    transform: scale(1.12) translate(-1.5%, -1%);
+  }
+}
+@keyframes kenburns-2 {
+  from {
+    transform: scale(1.05) translate(1%, 0.5%);
+  }
+  to {
+    transform: scale(1.14) translate(-1%, -1.5%);
+  }
+}
+@keyframes kenburns-3 {
+  from {
+    transform: scale(1) translate(-1%, 1%);
+  }
+  to {
+    transform: scale(1.1) translate(1.5%, -0.5%);
+  }
+}
+@keyframes kenburns-4 {
+  from {
+    transform: scale(1.08) translate(0%, -1%);
+  }
+  to {
+    transform: scale(1.16) translate(-1.5%, 1%);
+  }
+}
+@keyframes kenburns-5 {
+  from {
+    transform: scale(1) translate(1.5%, 0.5%);
+  }
+  to {
+    transform: scale(1.12) translate(-0.5%, -1.5%);
+  }
+}
+@keyframes kenburns-6 {
+  from {
+    transform: scale(1.04) translate(-1.5%, -0.5%);
+  }
+  to {
+    transform: scale(1.14) translate(1%, 1.5%);
+  }
 }
 
 /* Scroll indicator */
@@ -427,26 +658,67 @@ const kdhFeatures = [
   color: var(--ecw-gold);
   margin-bottom: 1rem;
 }
-.ecw-spotlight-image-mock {
-  aspect-ratio: 16/10;
-  border-radius: var(--ecw-radius-lg);
-  background:
-    linear-gradient(135deg, rgba(201, 168, 76, 0.06) 0%, transparent 60%), var(--ecw-charcoal-soft);
-  border: 1px solid var(--ecw-charcoal-border);
-  display: flex;
-  align-items: flex-end;
-  padding: 2rem;
+.ecw-spotlight-image-wrap {
   position: relative;
   overflow: hidden;
+  border-radius: var(--ecw-radius-lg);
+  border: 1px solid var(--ecw-charcoal-border);
+  aspect-ratio: 16/10;
 }
-.ecw-spotlight-image-mock::before {
-  content: '';
+.ecw-spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.72) saturate(0.7);
+  transition:
+    filter 0.5s,
+    transform 0.5s;
+}
+.ecw-spotlight-image-wrap:hover .ecw-spotlight-img {
+  filter: brightness(0.82) saturate(0.9);
+  transform: scale(1.04);
+}
+.ecw-spotlight-caption {
   position: absolute;
-  top: 0;
+  bottom: 0;
+  left: 0;
   right: 0;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.08), transparent 70%);
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+
+/* About photo */
+.ecw-about-photo-wrap {
+  position: relative;
+  border-radius: var(--ecw-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--ecw-charcoal-border);
+}
+.ecw-about-photo {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7) saturate(0.6);
+  transition:
+    filter 0.5s,
+    transform 0.5s;
+}
+.ecw-about-photo-wrap:hover .ecw-about-photo {
+  filter: brightness(0.8) saturate(0.8);
+  transform: scale(1.03);
+}
+.ecw-about-photo-accent {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(9, 9, 9, 0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: var(--ecw-radius-md);
+  padding: 0.875rem 1.25rem;
+  text-align: right;
 }
 
 /* Chip */

@@ -290,7 +290,7 @@ function submitForm() {
 
 <style scoped>
 .ecw-page-hero {
-  padding: 6rem 0 4rem;
+  padding: 3rem 0 4rem;
   background:
     radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 70%),
     var(--ecw-charcoal-mid);

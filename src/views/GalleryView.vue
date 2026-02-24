@@ -52,15 +52,13 @@
           <div :key="activeCategory" class="grid">
             <div v-for="item in filteredItems" :key="item.id" class="col-12 sm:col-6 lg:col-4">
               <div class="ecw-gallery-item" @click="openItem(item)">
-                <!-- Placeholder image using gradient + text -->
-                <div class="ecw-gallery-mock-img" :style="{ background: item.mockGradient }">
-                  <div class="ecw-gallery-mock-content">
-                    <i
-                      :class="`pi ${item.icon}`"
-                      style="font-size: 2rem; color: rgba(255, 255, 255, 0.15)"
-                    ></i>
-                  </div>
-                </div>
+                <!-- Real photo -->
+                <img
+                  :src="galleryImages[item.id]"
+                  :alt="item.title"
+                  class="ecw-gallery-real-img"
+                  loading="lazy"
+                />
                 <!-- Overlay -->
                 <div class="ecw-gallery-overlay">
                   <span class="ecw-label" style="font-size: 0.58rem; color: var(--ecw-gold)">
@@ -108,11 +106,13 @@
           <button class="ecw-lightbox-close" @click="selectedItem = null">
             <i class="pi pi-times"></i>
           </button>
-          <div class="ecw-lightbox-img" :style="{ background: selectedItem.mockGradient }">
-            <i
-              :class="`pi ${selectedItem.icon}`"
-              style="font-size: 4rem; color: rgba(255, 255, 255, 0.12)"
-            ></i>
+          <!-- Lightbox photo -->
+          <div class="ecw-lightbox-img-wrap">
+            <img
+              :src="galleryImages[selectedItem.id]"
+              :alt="selectedItem.title"
+              class="ecw-lightbox-real-img"
+            />
           </div>
           <div class="ecw-lightbox-info">
             <span class="ecw-label" style="font-size: 0.6rem">{{ selectedItem.category }}</span>
@@ -138,6 +138,7 @@
 </template>
 
 <script setup>
+import { galleryImages } from '@/data/images.js';
 import { computed, ref } from 'vue';
 
 const activeCategory = ref('all');
@@ -278,30 +279,27 @@ function openItem(item) {
 
 <style scoped>
 .ecw-page-hero {
-  padding: 6rem 0 4rem;
+  padding: 3rem 0 4rem;
   background:
     radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201, 168, 76, 0.05) 0%, transparent 70%),
     var(--ecw-charcoal-mid);
   border-bottom: 1px solid var(--ecw-charcoal-border);
 }
 
-.ecw-gallery-mock-img {
+/* Real gallery image */
+.ecw-gallery-real-img {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.5s ease,
+    filter 0.4s ease;
+  filter: brightness(0.75) saturate(0.7);
 }
-.ecw-gallery-item:hover .ecw-gallery-mock-img {
+.ecw-gallery-item:hover .ecw-gallery-real-img {
   transform: scale(1.08);
-}
-
-.ecw-gallery-mock-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  filter: brightness(0.88) saturate(0.9);
 }
 
 .ecw-gallery-cat-chip {
@@ -367,11 +365,18 @@ function openItem(item) {
   border-color: var(--ecw-gold);
 }
 
-.ecw-lightbox-img {
-  height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Lightbox real photo */
+.ecw-lightbox-img-wrap {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+.ecw-lightbox-real-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) saturate(0.8);
 }
 
 .ecw-lightbox-info {
