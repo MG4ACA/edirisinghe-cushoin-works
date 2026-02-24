@@ -113,7 +113,8 @@ cd /var/www/cushion-works
 
 ```bash
 # Clone from GitHub
-sudo git clone https://github.com/yourusername/edirisinghe-cushion-works.git .
+sudo git clone https://github.com/mg4aca/edirisinghe-cushion-works.git .
+https://github.com/MG4ACA/edirisinghe-cushoin-works.git
 
 # If cloning with a specific branch
 sudo git clone -b main https://github.com/yourusername/edirisinghe-cushion-works.git .
@@ -181,7 +182,7 @@ Add this configuration:
 server {
     listen 80;
     listen [::]:80;
-    server_name yourdomain.com www.yourdomain.com;
+    server_name edirisinghecushion.lumicore-labs.com www.edirisinghecushion.lumicore-labs.com;
 
     # Root directory for Vue.js built files
     root /var/www/cushion-works/dist;
@@ -262,7 +263,7 @@ sudo apt install certbot python3-certbot-nginx -y
 
 ```bash
 # Replace with your domain
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+sudo certbot --nginx -d edirisinghecushion.lumicore-labs.com -d www.edirisinghecushion.lumicore-labs.com
 ```
 
 Certbot will:
@@ -286,7 +287,7 @@ sudo nginx -t
 # Restart Nginx
 sudo systemctl restart nginx
 
-# Visit your domain in browser: https://yourdomain.com
+# Visit your domain in browser: https://edirisinghecushion.lumicore-labs.com
 ```
 
 ---
@@ -323,7 +324,7 @@ cat /var/www/cushion-works/dist/index.html | head -20
 
 Open your browser and visit:
 
-- `http://your_vps_ip` (or `https://yourdomain.com` if using SSL)
+- `http://your_vps_ip` (or `https://edirisinghecushion.lumicore-labs.com` if using SSL)
 
 You should see your Edirisinghe Cushion Works website!
 
@@ -640,7 +641,7 @@ Your Edirisinghe Cushion Works website is now live on Hostinger VPS!
 
 **Access your application at:**
 
-- 🌐 Website: `http://your_vps_ip` or `https://yourdomain.com`
+- 🌐 Website: `http://your_vps_ip` or `https://edirisinghecushion.lumicore-labs.com`
 - 📧 Contact via website form
 - 🖼️ Gallery and services pages fully functional
 
